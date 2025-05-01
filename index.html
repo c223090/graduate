@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>卒業制作報告ページ</title>
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Helvetica", "Arial", sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+header {
+    width: 100%;
+    background-color: #6c5ce7;
+    color: white;
+    padding: 15px 0;
+    font-size: 1.5em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.6em;
+    letter-spacing: 2px; /* 文字間を広げておしゃれに */
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 16px;
+    margin: 5px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+footer {
+    width: 100%;
+    background-color: #6c5ce7;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 0.9em;
+}
+
+main {
+    padding-top: 140px; /* ヘッダー＋メニューの高さ分余白を追加 */
+    padding-bottom: 60px;
+    width: 100%;
+}
+
+h2 {
+    color: #4a4a4a;
+    text-align: center;
+}
+
+.section {
+    margin: 20px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
+    width: 90%;
+    text-align: center;
+    scroll-margin-top: 140px;
+}
+
+.section p {
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.date-block {
+    background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+    color: white;
+    padding: 15px 20px;
+    margin: 15px auto;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.date-block:hover {
+    transform: translateY(-7px);
+    background: linear-gradient(135deg, #fbc2eb, #a18cd1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 12px;
+    position: relative;
+    animation: fadeIn 0.3s, slideUp 0.3s;
+    text-align: left;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close:hover {
+    color: #333;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes slideUp {
+    from {transform: translateY(20px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>卒業制作報告ページ 🎓</h1>
+    <nav>    
+        <a href="#goal">目標</a>
+        <a href="#purpose">目的</a>
+        <a href="#production">卒業制作</a>
+        <a href="#process">作成過程</a>
+        <a href="#reference">参考サイト</a>
+    </nav>
+</header>
+
+<main>
+
+ <div class="section" id="goal">
+        <h2>卒業制作で作りたいもの</h2>
+        <p><b>情報収集の負担軽減を目的とした、定性分析ツールの開発📘</b><br>ネットから自動で最新のニュースを取得して、そのニュースがどの株価に影響を与えるのか、またその影響度合を数値化するツール</p>
+</div>
+
+
+<div class="section" id="purpose">
+    <h2>① 制作の目的</h2>
+    <p>情報収集の負担軽減
+    </p>
+</div>
+
+<div class="section" id="production">
+    <h2>② 制作構想</h2>
+    <p><b>【実装したいこと】</b><br>①ネットからニュースを取得<br>②ニュースに関連するセクター、銘柄の特定
+    <br>③株価変動の影響度を予測して数値化<br>④レポートとして出力する<br>
+    <b>【用意したいもの】</b><br>影響度を数値化する際に参考にするデータ</p>
+</div>
+
+<div class="section" id="process">
+    <h2>③ 作成過程</h2>
+
+    <div class="date-block" data-modal="modal1">2025年4月1日 -①ニュース取得</div>
+    <div class="date-block" data-modal="modal2">2025年4月10日 - デザイン決定</div>
+    <div class="date-block" data-modal="modal3">2025年4月20日 - 実装開始</div>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>2025年4月1日</h3>
+            <p>ネット上から最新のニュース記事を取得するのを実装しました。<br>最初はAPIを取得し、ネット上から取得しようとしましたが、上手く実装できませんでした。
+            そこで、Difyを利用してこの部分を実装しました。ヤフーニュースから最新記事を取得しています。</p>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>2025年4月10日</h3>
+            <p>配色とフォントを決定し、ページデザインをモダンに仕上げる準備をしました。</p>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>2025年4月20日</h3>
+            <p>HTMLとCSSのコーディングを開始し、モーダル機能の実装を行いました。</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="section" id="reference">
+    <h2>④ 参考サイト</h2>
+    <p>・Google Fonts<br>・W3Schools<br>・CSS-Tricks</p>
+</div>
+
+</main>
+
+<footer>
+    &copy; 2025 卒業制作. All rights reserved.
+</footer>
+
+<script>
+document.querySelectorAll('.date-block').forEach(block => {
+    block.addEventListener('click', () => {
+        document.getElementById(block.dataset.modal).style.display = "flex";
+    });
+});
+
+document.querySelectorAll('.close').forEach(close => {
+    close.addEventListener('click', () => {
+        close.parentElement.parentElement.style.display = "none";
+    });
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal')) {
+        e.target.style.display = "none";
+    }
+});
+</script>
+
+</body>
+</html>
