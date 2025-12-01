@@ -220,12 +220,58 @@ h2 {
     </div>
 
     <div id="modal2" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>2025年4月10日</h3>
-            <p>配色とフォントを決定し、ページデザインをモダンに仕上げる準備をしました。</p>
-        </div>
+  <div class="modal-content">
+    <span class="close">&times;</span>
+
+    <!-- 1ページ目 -->
+    <div class="modal-page active" data-page="1">
+      <h3>2025年4月1日</h3>
+
+      <!-- 写真を追加する部分 -->
+      <img
+        src="images/news-diary-20250401.jpg"
+        alt="ニュース取得機能の画面イメージ"
+        class="modal-image"
+      >
+
+      <p>
+        ネット上から最新のニュース記事を取得するのを実装しました。<br>
+        最初はAPIを取得し、ネット上から取得しようとしましたが、上手く実装できませんでした。<br>
+        そこで、Difyを利用してこの部分を実装しました。ヤフーニュースから最新記事を取得しています。
+      </p>
     </div>
+
+    <!-- 2ページ目（例） -->
+    <div class="modal-page" data-page="2">
+      <h3>実装のポイントメモ</h3>
+      <p>
+        ・API直叩きでは認証やCORSの問題でつまずいた。<br>
+        ・Difyを使うことで、ニュース取得部分をノーコード寄りに実装できた。<br>
+        ・将来的には、銘柄ごとにニュースをフィルタしてスコアリングしたい。
+      </p>
+    </div>
+
+    <!-- 3ページ目（例） -->
+    <div class="modal-page" data-page="3">
+      <h3>次にやりたいこと</h3>
+      <p>
+        ・ニュース本文から自動で要約を生成する。<br>
+        ・株価データと組み合わせて、ニュースごとにインパクトスコアを付ける。<br>
+        ・日記のように1日ごとにモーダルを増やしていく。
+      </p>
+    </div>
+
+    <!-- ページ送りボタン -->
+    <div class="modal-pagination">
+      <button class="prev-page">← 前へ</button>
+      <span class="page-indicator">
+        <span id="currentPage1">1</span> / <span id="totalPage1">3</span>
+      </span>
+      <button class="next-page">次へ →</button>
+    </div>
+  </div>
+</div>
+
 
     <div id="modal3" class="modal">
         <div class="modal-content">
@@ -270,3 +316,4 @@ window.addEventListener('click', (e) => {
 
 </body>
 </html>
+
