@@ -287,27 +287,11 @@ h2 {
     &copy; 2025 卒業制作. All rights reserved.
 </footer>
 
-<script>
-document.querySelectorAll('.date-block').forEach(block => {
-    block.addEventListener('click', () => {
-        document.getElementById(block.dataset.modal).style.display = "flex";
-    });
-});
-
-document.querySelectorAll('.close').forEach(close => {
-    close.addEventListener('click', () => {
-        close.parentElement.parentElement.style.display = "none";
-    });
-});
-
-window.addEventListener('click', (e) => {
-    if (e.target.classList.contains('modal')) {
-        e.target.style.display = "none";
-    }
-});
-</script>
+<script src="script.js" defer></script>
 
 </body>
 </html>
+
+
 
 
