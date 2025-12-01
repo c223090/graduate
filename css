@@ -1,0 +1,44 @@
+/* 画像のスタイル */
+.modal-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;      /* トリミングしつついい感じに収める */
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+/* ページ切り替え用のブロック */
+.modal-page {
+  display: none;
+}
+
+.modal-page.active {
+  display: block;
+}
+
+/* ページ送り部分 */
+.modal-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.modal-pagination button {
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.modal-pagination button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.page-indicator {
+  font-size: 0.9rem;
+}
