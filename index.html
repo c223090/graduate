@@ -207,8 +207,8 @@ h2 {
     <h2>③ 作成過程</h2>
 
     <div class="date-block" data-modal="modal1">2025年4月1日 -①ニュース取得</div>
-    <div class="date-block" data-modal="modal2">2025年4月10日 - デザイン決定</div>
-    <div class="date-block" data-modal="modal3">2025年4月20日 - 実装開始</div>
+    <div class="date-block" data-modal="modal2">2025年8月15日 - ⓶ナレッジの改善</div>
+    <div class="date-block" data-modal="modal3">2025年11月30日 - ③ロジック補論</div>
 
     <div id="modal1" class="modal">
         <div class="modal-content">
@@ -225,32 +225,33 @@ h2 {
 
                 <!-- 1ページ目 -->
                 <div class="modal-page active" data-page="1">
-                <h3>2025年4月1日</h3>
+                <h3>ツールの基盤を作成</h3>
 
       <p>
-        ネット上から最新のニュース記事を取得するのを実装しました。<br>
-        最初はAPIを取得し、ネット上から取得しようとしましたが、上手く実装できませんでした。<br>
-        そこで、Difyを利用してこの部分を実装しました。ヤフーニュースから最新記事を取得しています。
+        Difyで以下の大まかなツールの基盤を作成。<br>
+        ⓵記事を取得<br>
+        ⓶LLM（言語処理モデル）でニュースを分析・スコアリング<br>
+        ③結果を出力<br>
+        <br>
       </p>
     </div>
 
     <!-- 2ページ目（例） -->
     <div class="modal-page" data-page="2">
-      <h3>実装のポイントメモ</h3>
+      <h3>課題となった点</h3>
       <p>
-        ・API直叩きでは認証やCORSの問題でつまずいた。<br>
-        ・Difyを使うことで、ニュース取得部分をノーコード寄りに実装できた。<br>
-        ・将来的には、銘柄ごとにニュースをフィルタしてスコアリングしたい。
+        ・<b>スコアリングの精度が低い</b><br>
+        ナレッジを改善することで、スコアリングの精度を上げれるのではないか<br>
+        ・<b>改善策</b>:過去1年間の業種別の株価変動率・株価が大きく変動した際のニュースの詳細
+        を記録したExcelファイルをナレッジにダウンロード。
       </p>
     </div>
 
     <!-- 3ページ目（例） -->
     <div class="modal-page" data-page="3">
-      <h3>次にやりたいこと</h3>
+      <h3>結果</h3>
       <p>
-        ・ニュース本文から自動で要約を生成する。<br>
-        ・株価データと組み合わせて、ニュースごとにインパクトスコアを付ける。<br>
-        ・日記のように1日ごとにモーダルを増やしていく。
+        ・少しだけ精度が改善した？ように見える<br>
       </p>
     </div>
 
@@ -269,10 +270,71 @@ h2 {
     <div id="modal3" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h3>2025年4月20日</h3>
-            <p>HTMLとCSSのコーディングを開始し、モーダル機能の実装を行いました。</p>
-        </div>
+             <!-- 1ページ目 -->
+                <div class="modal-page active" data-page="1">
+                <h3>前回の課題</h3>
+
+      <p>
+        ・ナレッジを改善したが、改善効果があるか不明慮<br>
+        <h3>改善策</h3>
+        ・LLMの出力したスコアを、キーワードやセクターに合わせて調整。<br>
+        <h4>・Pythonで処理</h4>
+        例：「銀行業」セクター＆「金利上昇」のキーワード<br>
+        →銀行は利ザヤが拡大するので、業績上昇<br>
+        →<b>スコアを上げる</b>
+      </p>
     </div>
+
+    <!-- 2ページ目（例） -->
+    <div class="modal-page" data-page="2">
+      <h3>途中で生じた課題</h3>
+      <p>
+        ・<b>JSON構造</b><br>
+        LLMの出力結果がtext形式だと、処理できないためJSON構造で出力する必要がある。<br>
+        ・プロンプトで、JSON構造出力を支持したが、うまくいかなかった<br>
+        ・Difyの機能で構造化出力設定を発見！（実行できるLLMモデルの制限有）
+      </p>
+    </div>
+
+    <!-- 3ページ目（例） -->
+    <div class="modal-page" data-page="3">
+      <h3>どんなコードにした？</h3>
+      <p>
+        ・ニュースがポジティブなのに、株価にマイナスのスコア→逆にする<br>
+        ・「金利上昇」「自社株買い」などのどんな株にも影響を与える単語がある→影響度Up<br>
+        ・「銀行業」セクター＆「金利上昇」などの特定のセクターに影響を与えるキーワードがある→スコア調整<br>
+
+      </p>
+    </div>
+
+    <div class="modal-page" data-page="4">
+      <h3>結果</h3>
+      <p>
+        ・<b>微妙に改善！（ナレッジよりは確実）</b><br>
+        ・LLMのスコアリングがかなり過大評価なので、Pythonをかませることで現実味のあるスコアになった。
+        ・ついでに、LLMで分析させるノードを追加して、よりレポートっぽい出力にした。
+      </p>
+    </div>
+
+    <div class="modal-page" data-page="5">
+      <h3>次回までにすること</h3>
+      <p>
+        ・Pythonのコードを改善したい<br>
+        ・今の市場指標(日経平均、日経VIなど)を考慮した出力をしたい<br>
+        ・Notionに連携して、レポート化を充実させたい<br>
+      </p>
+    </div>
+
+    <!-- ページ送りボタン -->
+    <div class="modal-pagination">
+      <button class="prev-page">← 前へ</button>
+      <span class="page-indicator">
+        <span id="currentPage1">1</span> / <span id="totalPage1">5</span>
+      </span>
+      <button class="next-page">次へ →</button>
+    </div>
+  </div>
+</div>
 
 </div>
 
@@ -291,7 +353,4 @@ h2 {
 
 </body>
 </html>
-
-
-
 
